@@ -4,10 +4,19 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 var expect      = require('chai').expect;
 var cors        = require('cors');
-
+var mongoose    = require('mongoose');
 var apiRoutes         = require('./routes/api.js');
 var fccTestingRoutes  = require('./routes/fcctesting.js');
 var runner            = require('./test-runner');
+require('dotenv').config();
+
+/*****DB CONN*****/
+const MONGODB_CONNECTION_STRING = process.env.DB;
+//Example connection: MongoClient.connect(MONGODB_CONNECTION_STRING, function(err, db) {});
+mongoose.connect(MONGODB_CONNECTION_STRING, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(ok => console.log("Connected to MongoDB!"))
+  .catch(error => console.log(error));
+/*****************/
 
 var app = express();
 

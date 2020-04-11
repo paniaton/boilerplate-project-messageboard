@@ -7,9 +7,12 @@
 	"description": "What am I about?",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js"
+		"start": "node server.js",
+		"server": "nodemon server.js",
+		"test": "node runtest.js"
 	},
 	"dependencies": {
+		"bcrypt": "^4.0.1",
 		"body-parser": "^1.19.0",
 		"chai": "^3.5.0",
 		"chai-http": "^3.0.0",
@@ -18,12 +21,12 @@
 		"express": "^4.17.1",
 		"helmet": "^3.22.0",
 		"mocha": "^3.5.3",
-		"mongodb": "^2.2.36",
+		"mongodb": "^3.5.5",
 		"mongoose": "^5.9.7",
 		"zombie": "^5.0.8"
 	},
 	"engines": {
-		"node": "4.4.3"
+		"node": "8.12.0"
 	},
 	"repository": {
 		"type": "git",
@@ -36,6 +39,14 @@
 	],
 	"license": "MIT",
 	"devDependencies": {
+		"@babel/core": "^7.9.0",
+		"@babel/preset-env": "^7.9.0",
+		"@babel/register": "^7.9.0",
+		"babel-cli": "^6.26.0",
+		"babel-preset-env": "^1.7.0",
 		"nodemon": "^2.0.2"
-	}
+	},
+	"presets": [
+		"env"
+	]
 }
